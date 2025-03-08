@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Defense Holdings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #222222;
+            background-color: #ffffff;
+            line-height: 1.8;
+        }
+        header, section, footer {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #111;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #2A5DB0; /* Updated to a visually balanced professional blue */
+            font-weight: 600;
+        }
+        .hero-placeholder {
+            background: url('https://raw.githubusercontent.com/sdhalpern86/safe-defense-landing/main/hero-image-lab.jpeg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .section-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
+        button {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            border: none;
+            background-color: #111;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #00A651;
+        }
+        .footer {
+            font-size: 0.9rem;
+            color: #777;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .success-message {
+            color: #00A651;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-placeholder"></div>
+    <h1>The Future of Non-Lethal Intervention is Here</h1>
+    <h2>Patent-Pending Vision Impairment Solutions That Outperform OC/PAVA & Reduce Liability</h2>
+</header>
+
+<section class="section-container">
+    <h3>Redefining Safety Standards</h3>
+    <p>Current policing and security challenges necessitate better intervention and apprehension solutions. Our proprietary, patent-pending formulations provide law enforcement and security professionals with highly effective and genuinely non-lethal alternatives to flawed (“less-lethal”) intervention methods such as OC/PAVA. Engineered to be reliable, safe and deployable in any environment (incl. crowded spaces), our products help professionals establish and maintain control with no appreciable risk to the user, bystanders, or the intended target.</p>
+</section>
+
+<section class="section-container">
+    <h3>Backed by Engineering Excellence & Proven Results</h3>
+    <p>Our leadership team has a legacy of pioneering and optimizing revolutionary technologies in aerospace and medicine, from the B-2 Spirit stealth bomber to the first MRI whole body scanners. We’ve now applied that same expertise and commitment to creating safer, more effective intervention solutions that reduce risk and enhance operational capabilities in any environment.</p>
+</section>
+
+<section class="section-container">
+    <h3>Partner with Us to Lead the Future</h3>
+    <p>We are engaging with chemical suppliers, contract manufacturers, investors, and early adopters who recognize the urgent need for better alternatives in public safety and security. Our solutions don’t just meet industry standards—they set new ones. Join us in transforming the landscape of non-lethal intervention.</p>
+</section>
+
+<section class="section-container">
+    <h3>Contact Us</h3>
+    <div id="success-message" class="success-message"></div>
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Safe Defense Holdings</p>
+    <p>5900 Balcones Drive Suite 100, Austin, TX 78731</p>
+</footer>
+
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+        document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
+        document.getElementById("contact-form").reset();
+    });
+</script>
+</body>
+</html>
