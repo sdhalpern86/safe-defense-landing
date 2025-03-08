@@ -17,8 +17,34 @@
       line-height: 1.8;
     }
     header, section, footer {
-      padding: 4rem 2rem;
       text-align: center;
+    }
+    /* Header with combined hero image and centered content */
+    .hero {
+      position: relative;
+      height: 400px;
+    }
+    .hero-background {
+      background: url('https://raw.githubusercontent.com/sdhalpern86/safe-defense-landing/main/hero-image-lab.jpeg') center/cover no-repeat;
+      filter: blur(2px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      /* Ensure text remains centered */
+      text-align: center;
+      color: white;
     }
     h1 {
       font-size: 3rem;
@@ -30,18 +56,6 @@
       font-size: 1.5rem;
       color: #2A5DB0;
       font-weight: 600;
-    }
-    .hero-placeholder {
-      background: url('https://raw.githubusercontent.com/sdhalpern86/safe-defense-landing/main/hero-image-lab.jpeg') center/cover no-repeat;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      filter: blur(2px);
     }
     .section-container {
       max-width: 900px;
@@ -82,8 +96,8 @@
     .footer {
       font-size: 0.9rem;
       color: #777;
-      text-align: center;
       margin-top: 3rem;
+      padding: 2rem;
     }
     .success-message {
       color: #00A651;
@@ -91,7 +105,7 @@
       font-weight: bold;
     }
     
-    /* Mobile Styling Improvements*/
+    /* Mobile Styles: Suggestions #1 through #5 */
     @media (max-width: 768px) {
       /* 1. Refine overall spacing */
       header, section, footer {
@@ -99,7 +113,7 @@
       }
       
       /* 2. Adjust hero image height */
-      .hero-placeholder {
+      .hero {
         height: 250px;
       }
       
@@ -125,28 +139,31 @@
   </style>
 </head>
 <body>
-
   <header>
-    <div class="hero-placeholder"></div>
-    <h1>The Future of Non-Lethal Intervention is Here</h1>
-    <h2>Patent-Pending Vision Impairment Solutions That Outperform OC/PAVA & Reduce Liability</h2>
+    <div class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-content">
+        <h1>The Future of Non-Lethal Intervention is Here</h1>
+        <h2>Patent-Pending Vision Impairment Solutions That Outperform OC/PAVA &amp; Reduce Liability</h2>
+      </div>
+    </div>
   </header>
-
+  
   <section class="section-container">
     <h3>Redefining Safety Standards</h3>
     <p>Current policing and security challenges necessitate better intervention and apprehension solutions. Our proprietary, patent-pending formulations provide law enforcement and security professionals with highly effective and genuinely non-lethal alternatives to flawed (“less-lethal”) intervention methods such as OC/PAVA. Engineered to be reliable, safe and deployable in any environment (incl. crowded spaces), our products help professionals establish and maintain control with no appreciable risk to the user, bystanders, or the intended target.</p>
   </section>
-
+  
   <section class="section-container">
-    <h3>Backed by Engineering Excellence & Proven Results</h3>
+    <h3>Backed by Engineering Excellence &amp; Proven Results</h3>
     <p>Our leadership team has a legacy of pioneering and optimizing revolutionary technologies in aerospace and medicine, from the B-2 Spirit stealth bomber to the first MRI whole body scanners. We’ve now applied that same expertise and commitment to creating safer, more effective intervention solutions that reduce risk and enhance operational capabilities in any environment.</p>
   </section>
-
+  
   <section class="section-container">
     <h3>Partner with Us to Lead the Future</h3>
     <p>We are engaging with chemical suppliers, contract manufacturers, investors, and early adopters who recognize the urgent need for better alternatives in public safety and security. Our solutions don’t just meet industry standards—they set new ones. Join us in transforming the landscape of non-lethal intervention.</p>
   </section>
-
+  
   <section class="section-container">
     <h3>Contact Us</h3>
     <div id="success-message" class="success-message"></div>
@@ -157,12 +174,12 @@
       <button type="submit">Submit</button>
     </form>
   </section>
-
+  
   <footer class="footer">
     <p>© 2025 Safe Defense Holdings</p>
     <p>5900 Balcones Drive Suite 100, Austin, TX 78731</p>
   </footer>
-
+  
   <script>
     document.getElementById("contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
