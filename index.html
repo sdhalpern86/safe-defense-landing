@@ -8,33 +8,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* Base reset & typography */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Montserrat', sans-serif;
-      color: #222222;
-      background-color: #ffffff;
+      color: #222;
+      background-color: #fff;
       line-height: 1.8;
     }
-    /* Basic layout elements */
+
+    /* Center text for main structural elements */
     header, section, footer {
       text-align: center;
     }
 
-    /* Hero image container */
+    /* Hero Image (no overlapping text) */
     .hero-placeholder {
       background: url('https://raw.githubusercontent.com/sdhalpern86/safe-defense-landing/main/hero-image-lab.jpeg') center/cover no-repeat;
       height: 400px;
       filter: blur(2px);
       margin: 0 auto;
+      max-width: 100%;
     }
 
-    /* Container for the main heading and subheading (below the hero) */
+    /* Container for the main title & subheader (below hero image) */
     .hero-content {
       max-width: 900px;
       margin: 2rem auto 0 auto;
       padding: 0 1rem;
-      text-align: center;
     }
     .hero-content h1 {
       font-size: 3rem;
@@ -46,29 +48,31 @@
       font-size: 1.5rem;
       color: #2A5DB0;
       font-weight: 600;
-      margin-bottom: 2rem; /* Add bottom spacing to avoid overlapping the next heading */
+      margin-bottom: 2rem; /* space before next heading */
     }
 
-    /* General content sections */
+    /* Section styling */
     .section-container {
       max-width: 900px;
       margin: auto;
-      padding: 2rem 0;
+      padding: 2rem 1rem;
     }
     .section-container h3 {
       margin-top: 0;
     }
-    p {
+    .section-container p {
       font-size: 1.1rem;
       color: #444;
-      margin: 0 auto;
       max-width: 100%;
+      margin: 0 auto;
     }
 
     /* Contact form styling */
     form {
       max-width: 600px;
-      margin: auto;
+      margin: 0 auto;
+      /* Extra horizontal padding so inputs aren’t edge-to-edge on mobile */
+      padding: 0 1rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -80,7 +84,11 @@
       border: 1px solid #ddd;
       font-family: inherit;
     }
+    /* Center & limit button width */
     button {
+      display: inline-block;    /* shrink to fit content width */
+      margin: 0 auto;          /* center horizontally */
+      width: auto;             /* not full width */
       padding: 1rem 2rem;
       border-radius: 6px;
       border: none;
@@ -94,7 +102,7 @@
       background-color: #00A651;
     }
 
-    /* Footer styling */
+    /* Footer */
     .footer {
       font-size: 0.9rem;
       color: #777;
@@ -107,21 +115,28 @@
       font-weight: bold;
     }
 
-    /* Responsive (mobile) adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      /* Reduce hero height on mobile */
       .hero-placeholder {
         height: 250px;
       }
+
+      /* Scale down headings on mobile */
       .hero-content h1 {
         font-size: 2.5rem;
       }
       .hero-content h2 {
         font-size: 1.3rem;
       }
-      p {
+
+      /* Make paragraphs slightly smaller */
+      .section-container p {
         font-size: 1rem;
         line-height: 1.6;
       }
+
+      /* Slightly increase form spacing on mobile */
       form {
         gap: 1.5rem;
       }
@@ -130,10 +145,10 @@
 </head>
 <body>
   <header>
-    <!-- Blurred hero image -->
+    <!-- Hero Image (no text overlay) -->
     <div class="hero-placeholder"></div>
 
-    <!-- Headings below the hero image (no overlay) -->
+    <!-- Title & Subheader BELOW the hero image -->
     <div class="hero-content">
       <h1>The Future of Non-Lethal Intervention is Here</h1>
       <h2>Patent-Pending Vision Impairment Solutions That Outperform OC/PAVA &amp; Reduce Liability</h2>
