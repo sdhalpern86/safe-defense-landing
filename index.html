@@ -197,6 +197,7 @@
     <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxtH2UqAtxoOrwM6moz5bGSKKJFt0Rba3m3ZWQ1klvg5yIEN9wboQ4b7S6KOkKy4OQA/exec" method="POST">
       <input type="text" name="name" id="name" placeholder="Your Name" required />
       <input type="email" name="email" id="email" placeholder="Your Email" required />
+      <p id="email-error" style="color: red; display: none;">Invalid email address</p>
       <textarea name="message" id="message" placeholder="Your Message" rows="4" required></textarea>
       <button type="submit">Submit</button>
     </form>
@@ -209,30 +210,42 @@
 
   <script>
     document.getElementById("contact-form").addEventListener("submit", async function(e) {
-  e.preventDefault(); // Prevent default form submission
-  
-  const form = e.target;
-  const formData = new FormData(form);
-  
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: formData,
+      e.preventDefault(); // Prevent default form submission
+      
+      const form = e.target;
+      const emailInput = document.getElementById("email");
+      const emailError = document.getElementById("email-error");
+    
+      // Simple email format validation using regex
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+      if (!emailPattern.test(emailInput.value)) {
+        emailError.style.display = "block";
+        return; // Stop submission if email is invalid
+      } else {
+        emailError.style.display = "none"; // Hide error message
+      }
+    
+      const formData = new FormData(form);
+      
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+        });
+    
+        const result = await response.json();
+    
+        if (result.status === "success") {
+          document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
+          form.reset(); // Only reset if successful
+        } else {
+          document.getElementById("success-message").textContent = "Apologies but we ran into an error. Please email contact@safedefenseholdings.com.";
+        }
+      } catch (error) {
+        document.getElementById("success-message").textContent = "Error: Could not submit form.";
+      }
     });
-
-    const result = await response.json();
-
-    if (result.status === "success") {
-      document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
-      form.reset(); // Only reset if successful
-    } else {
-      document.getElementById("success-message").textContent = "Apologies but we ran into an error. Please email contact@safedefenseholdings.com.";
-    }
-  } catch (error) {
-    document.getElementById("success-message").textContent = "Error: Could not submit form.";
-  }
-});
-
-  </script>
+    </script>
 </body>
 </html>
