@@ -4,11 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Safe Defense Holdings</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Original Montserrat for page content -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Roboto 700 for header logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
   <style>
-    /* Base reset & typography */
+    /* Base styling using Montserrat for general page content */
     body {
       margin: 0;
       padding: 0;
@@ -18,14 +24,41 @@
       line-height: 1.8;
     }
 
+    /* Sticky Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      background-color: rgb(63, 96, 162); /* #3F60A2 */
+      z-index: 999; /* Ensures header stays above other elements */
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem; /* Provides enough space so the logo isn't flush left */
+    }
+    .header-content .logo {
+      height: 40px; /* Adjust as desired */
+      margin-right: 10px;
+    }
+    .header-content .site-title {
+      /* Override for header logo text */
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem; /* Adjust so text height matches the logo */
+      color: #fff;
+      white-space: nowrap;
+    }
+
     /* Center text for main structural elements */
     header, section, footer {
       text-align: center;
     }
 
-    /* Block align paragraph text */
+    /* Paragraph styling */
     p {
       text-align: justify;
+      margin: 0 auto;
+      max-width: 100%;
     }
 
     /* Hero Image (no overlapping text) */
@@ -45,15 +78,13 @@
     }
     .hero-content h1 {
       font-size: 3rem;
-      font-weight: 700;
       margin-bottom: 1rem;
       color: #111;
     }
     .hero-content h2 {
       font-size: 1.5rem;
       color: #2A5DB0;
-      font-weight: 600;
-      margin-bottom: 2rem; /* space before next heading */
+      margin-bottom: 2rem;
     }
 
     /* Section styling */
@@ -68,15 +99,12 @@
     .section-container p {
       font-size: 1.1rem;
       color: #444;
-      max-width: 100%;
-      margin: 0 auto;
     }
 
     /* Contact form styling */
     form {
       max-width: 600px;
       margin: 0 auto;
-      /* Extra horizontal padding so inputs aren’t edge-to-edge on mobile */
       padding: 0 1rem;
       display: flex;
       flex-direction: column;
@@ -87,19 +115,18 @@
       padding: 1rem;
       border-radius: 6px;
       border: 1px solid #ddd;
-      font-family: inherit;
+      font-family: inherit; /* Inherits Montserrat */
     }
-    /* Center & limit button width */
+    /* Button styling */
     button {
-      display: inline-block;    /* shrink to fit content width */
-      margin: 0 auto;          /* center horizontally */
-      width: auto;             /* not full width */
+      display: inline-block;
+      margin: 0 auto;
+      width: auto;
       padding: 1rem 2rem;
       border-radius: 6px;
       border: none;
       background-color: #111;
       color: #fff;
-      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
@@ -107,7 +134,7 @@
       background-color: #00A651;
     }
 
-    /* Footer */
+    /* Footer styling */
     .footer {
       font-size: 0.9rem;
       color: #777;
@@ -119,31 +146,23 @@
     .success-message {
       color: #00A651;
       margin-bottom: 1rem;
-      font-weight: bold;
     }
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      /* Reduce hero height on mobile */
       .hero-placeholder {
         height: 250px;
       }
-
-      /* Scale down headings on mobile */
       .hero-content h1 {
         font-size: 2.5rem;
       }
       .hero-content h2 {
         font-size: 1.3rem;
       }
-
-      /* Make paragraphs slightly smaller */
       .section-container p {
         font-size: 1rem;
         line-height: 1.6;
       }
-
-      /* Slightly increase form spacing on mobile */
       form {
         gap: 1.5rem;
       }
@@ -151,21 +170,28 @@
   </style>
 </head>
 <body>
-  <header>
-    <!-- Hero Image (no text overlay) -->
-    <div class="hero-placeholder"></div>
+  <!-- Sticky Header with header logo font -->
+  <header class="site-header">
+    <div class="header-content">
+      <!-- Logo image (adjust filename if necessary) -->
+      <img src="safe-defense-logo.svg" alt="Safe Defense Logo" class="logo">
+      <span class="site-title">Safe Defense</span>
+    </div>
+  </header>
 
-    <!-- Title & Subheader BELOW the hero image -->
+  <!-- Hero Section -->
+  <section>
+    <div class="hero-placeholder"></div>
     <div class="hero-content">
       <h1>Next Generation Non-Lethal Incapacitation Solutions</h1>
       <h2>Patent-Pending Vision Impairment Solutions™ That Outperform OC/PAVA &amp; Reduce Liability</h2>
     </div>
-  </header>
+  </section>
 
   <section class="section-container">
     <h3>Safe and Superior Incapacitation</h3>
     <p>
-      Current policing and security challenges demand safer, more effective incapacitation solutions. Traditional “less-lethal” methods like OC/PAVA aerosols and pepper projectiles pose risks—unpredictable physiological responses, respiratory distress, ocular damage, and potential litigation. These methods can fail to incapacitate some individuals while causing severe injury to others. 
+      Current policing and security challenges demand safer, more effective incapacitation solutions. Traditional “less-lethal” methods like OC/PAVA aerosols and pepper projectiles pose risks—unpredictable physiological responses, respiratory distress, ocular damage, and potential litigation. These methods can fail to incapacitate some individuals while causing severe injury to others.
     </p>
     <br>
     <p>
@@ -222,12 +248,11 @@
     
       // Simple email format validation using regex
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
       if (!emailPattern.test(emailInput.value)) {
         emailError.style.display = "block";
-        return; // Stop submission if email is invalid
+        return;
       } else {
-        emailError.style.display = "none"; // Hide error message
+        emailError.style.display = "none";
       }
     
       const formData = new FormData(form);
@@ -239,10 +264,9 @@
         });
     
         const result = await response.json();
-    
         if (result.status === "success") {
           document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
-          form.reset(); // Only reset if successful
+          form.reset();
         } else {
           document.getElementById("success-message").textContent = "Apologies but we ran into an error. Please email contact@safedefenseholdings.com.";
         }
@@ -250,6 +274,6 @@
         document.getElementById("success-message").textContent = "Error: Could not submit form.";
       }
     });
-    </script>
+  </script>
 </body>
 </html>
