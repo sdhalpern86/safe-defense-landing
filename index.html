@@ -208,11 +208,31 @@
   </footer>
 
   <script>
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
-      document.getElementById("contact-form").reset();
+    document.getElementById("contact-form").addEventListener("submit", async function(e) {
+  e.preventDefault(); // Prevent default form submission
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
     });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      document.getElementById("success-message").textContent = "Success! We'll get back to you shortly.";
+      form.reset(); // Only reset if successful
+    } else {
+      document.getElementById("success-message").textContent = "Apologies but we ran into an error. Please email contact@safedefenseholdings.com.";
+    }
+  } catch (error) {
+    document.getElementById("success-message").textContent = "Error: Could not submit form.";
+  }
+});
+
   </script>
 </body>
 </html>
